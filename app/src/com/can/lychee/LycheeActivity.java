@@ -1,23 +1,26 @@
 package com.can.lychee;
 
+import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.can.uilib.lychee.LycheeFragment;
+import com.can.lychee.R;
 import android.os.Bundle;
-import android.app.Activity;
-import android.view.Menu;
 
-public class LycheeActivity extends Activity {
 
+public class LycheeActivity extends SherlockFragmentActivity {
+
+	private LycheeFragment mFragment;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
         setContentView(R.layout.activity_lychee);
-    }
+        
+		mFragment = new LycheeFragment();
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.lychee, menu);
-        return true;
+		getSupportFragmentManager().beginTransaction().replace(R.id.lychee_act, mFragment).commit();
+        
+        
     }
     
 }
